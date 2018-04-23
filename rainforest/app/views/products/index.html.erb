@@ -1,0 +1,7 @@
+<h1> Home page/ All Products </h1>
+
+<%= link_to('Create New Product', new_product_path) %>
+
+<% @products.each do |product| %>
+  <%= render 'single_product', a_product: product%> <!-- a_product: = product -->
+<%end%>

@@ -1,0 +1,26 @@
+<h1><%= @product.name %> </h1>
+
+<%= link_to 'Back to home', products_path %>
+
+<%= render 'single_product', a_product: @product %>
+
+<%= link_to 'Edit', edit_product_path%>
+<%= link_to 'Delete', product_path(@product), method: :delete%>
+
+<!-- add review stuff after-->
+
+<%= render partial: 'reviews/review_form', locals: {a_review: @review, id: @product.id} %>
+
+<h2> Reviews for <%= @product.name %> </h2>
+
+<ul>
+  <% @product_reviews.each do |a_review| %>
+    <li>
+      <%= a_review.content %><br>
+      <%= a_review.customer.name %>
+      <%= a_review.created_at %>
+      <%= link_to 'Edit', edit_product_review_path(@product, a_review) %>
+      <%= link_to 'Delete', product_review_path(@product, a_review), method: :delete %>
+    </li>
+  <%end %>
+</ul>

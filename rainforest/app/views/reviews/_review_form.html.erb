@@ -1,0 +1,11 @@
+<%= form_for a_review, url: product_review_path(id) do |f| %>
+  <p>
+    <%= f.label :review %>
+    <%= f.text_field :content %>
+  </p>
+
+  <p>
+    <%= f.submit 'Save' %>
+  </p>
+
+<% end %>

@@ -1,0 +1,18 @@
+<% form_for @review, url: product_review_path(@product.id, @review.id) do |f| %>
+
+  <p>
+    <%= f.label :review%><br>
+    <%= f.text_field :content %>
+  </p>
+
+  <p>
+    <%= f.submit "Save" %>
+  </p>
+
+<%end%>
+
+<% if flash[:warning] %>
+  <% flash[:warning].each do |error| %>
+    <%= error %> <br>
+  <%end%>
+<%end%>
