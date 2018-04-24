@@ -9,7 +9,8 @@
 products= Product.create([{name: 'Dell Laptop', description: 'Brand new Windows Laptop', price: 1000},
                           {name: 'Macbook Laptop', description: 'Brand new Apple Laptop', price: 1500}])
 
-customers= Customer.create([{name: 'Behram', email: 'behram@gmail.com'}, {name: 'Bob', email: 'bob@yahoo.com'}])
+customers= Customer.create([{name: 'Behram', email: 'behram@gmail.com', password:'password', password_confirmation:'password'},
+                            {name: 'Bob', email: 'bob@yahoo.com', password:'password', password_confirmation:'password'}])
 
 reviews= Review.create([{customer_id: 1, product_id: 1, content: 'Very fast laptop'},
                         {customer_id: 1, product_id: 2, content: 'Very expensive laptop'}])

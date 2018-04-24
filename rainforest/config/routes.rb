@@ -7,5 +7,7 @@ Rails.application.routes.draw do
     resources :reviews
   end
 
-  resources :cutomers, except: [:destroy]
+  resource :customer, except: [:destroy]
+
+  resource :session
 end

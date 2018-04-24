@@ -1,17 +1,18 @@
 class ReviewsController < ApplicationController
 
-  def new
-    @review = Review.new
-  end
+  # def new
+  #   @review = Review.new
+  # end
 
   def create
     @review = Review.new
 
     @review.content = params[:review][:content]
     @review.product_id = params[:product_id]
-    @review.customer_id = 1 #for now, must change when u add login
+    # @review.customer_id = 1 #for now, must change when u add login
+    @review.customer_id = current_customer.id
 
-    if @review.save
+    if @review.save!
       redirect_to product_path(id: params[:product_id])
     else
       flash[:warning] = @review.errors.full_messages
@@ -57,8 +58,8 @@ class ReviewsController < ApplicationController
     review_id = params[:id]
     product_id = params[:product_id]
     @review = Review.find(review_id)
-    @revoew.destroy
-    redirect_to product_path(id: review_id)
+    @review.destroy
+    redirect_to product_path(id: product_id)
   end
 
 end
